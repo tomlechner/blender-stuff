@@ -1,8 +1,5 @@
 #Simplified BSD License
 #
-#Modified 2018 by Tom Lechner to also include the current frame number in
-#the filename. 
-#
 #Copyright (c) 2012, Florian Meyer
 #tstscr@web.de
 #All rights reserved.
