@@ -1,3 +1,8 @@
+#
+#Autosave after each render to: [filename]_[filenumber]-f[frame number].[extension]
+#For Blender 2.79.
+#
+#
 #Simplified BSD License
 #
 #Copyright (c) 2012, Florian Meyer
