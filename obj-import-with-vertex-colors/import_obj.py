@@ -22,7 +22,7 @@
 # Contributors: Campbell Barton, Jiri Hnidek, Paolo Ciccone
 
 """
-This script imports a Wavefront OBJ files to Blender.
+This script imports Wavefront OBJ files with vertex color support to Blender.
 
 Usage:
 Run this script from "File->Import" menu and then load the desired OBJ file.
@@ -1051,7 +1051,7 @@ def load(context,
         )
 
     with ProgressReport(context.window_manager) as progress:
-        progress.enter_substeps(1, "Importing OBJ %r..." % filepath)
+        progress.enter_substeps(1, "Importing OBJ with vertex color support %r..." % filepath)
 
         if global_matrix is None:
             global_matrix = mathutils.Matrix()
