@@ -57,10 +57,25 @@ def auto_save_render(scene):
     rndr = scene.render
     original_format = rndr.image_settings.file_format
 
-    format = rndr.image_settings.file_format = scene.auto_save_format
-    if format == 'OPEN_EXR_MULTILAYER': extension = '.exr'
-    if format == 'JPEG': extension = '.jpg'
-    if format == 'PNG': extension = '.png'
+    format = rndr.image_settings.file_format
+    if   format == 'BMP': extension = '.bmp'
+    elif format == 'OPEN_EXR_MULTILAYER': extension = '.exr'
+    elif format == 'JPEG': extension = '.jpg'
+    elif format == 'PNG': extension = '.png'
+    elif format == 'IRIS': extension = '.iris'
+    elif format == 'JPEG2000': extension = '.jpg'
+    elif format == 'TARGA': extension = '.tga'
+    elif format == 'TARGA_RAW': extension = '.tga'
+    elif format == 'CINEON': extension = '.cineon'
+    elif format == 'DPX': extension = '.dpx'
+    elif format == 'OPEN_EXR': extension = '.exr'
+    elif format == 'HDR': extension = '.hdr'
+    elif format == 'TIFF': extension = '.tif'
+
+#    format = rndr.image_settings.file_format = scene.auto_save_format
+#    if format == 'OPEN_EXR_MULTILAYER': extension = '.exr'
+#    if format == 'JPEG': extension = '.jpg'
+#    if format == 'PNG': extension = '.png'
     
     blendname = basename(bpy.data.filepath).rpartition('.')[0]
     filepath = dirname(bpy.data.filepath) + '/auto_saves'
@@ -104,27 +119,23 @@ def auto_save_render(scene):
 def auto_save_UI(self, context):
     layout = self.layout
     
-    split=layout.split(percentage=0.66, align=True)
-    row = split.row()
+    row = layout.row()
     row.prop(context.scene, 'save_after_render', text='Auto Save', toggle=False)
     row.prop(context.scene, 'auto_save_subfolders', toggle=False)
-    #split=layout.split()
-    row=split.row()
-    row.prop(context.scene, 'auto_save_format', text='as', expand=False)
     
 def register():
     bpy.types.Scene.save_after_render = BoolProperty(
                     name='Save after render',
                     default=True,
                     description='Automatically save rendered images into: //auto_save/')
-    bpy.types.Scene.auto_save_format = EnumProperty(
-                    name='Auto Save File Format',
-                    description='File Format for the auto saves.',
-                    items={
-                    ('PNG', 'png', 'Save as png'),
-                    ('JPEG', 'jpg', 'Save as jpg'),
-                    ('OPEN_EXR_MULTILAYER', 'exr', 'Save as multilayer exr')},
-                    default='PNG')
+#    bpy.types.Scene.auto_save_format = EnumProperty(
+#                    name='Auto Save File Format',
+#                    description='File Format for the auto saves.',
+#                    items={
+#                    ('PNG', 'png', 'Save as png'),
+#                    ('JPEG', 'jpg', 'Save as jpg'),
+#                    ('OPEN_EXR_MULTILAYER', 'exr', 'Save as multilayer exr')},
+#                    default='PNG')
     bpy.types.Scene.auto_save_subfolders = BoolProperty(
                     name='subfolder',
                     default=False,
@@ -134,7 +145,7 @@ def register():
     
 def unregister():
     del(bpy.types.Scene.save_after_render)
-    del(bpy.types.Scene.auto_save_format)
+#    del(bpy.types.Scene.auto_save_format)
     del(bpy.types.Scene.auto_save_subfolders)
     bpy.app.handlers.render_post.remove(auto_save_render)
     bpy.types.RENDER_PT_render.remove(auto_save_UI)
