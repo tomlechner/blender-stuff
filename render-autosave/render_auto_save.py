@@ -111,7 +111,7 @@ def auto_save_render(scene):
         return
     
     print('Auto_Save:', save_name)
-    image.save_render(save_name, scene=None)
+    image.save_render(save_name, scene=bpy.context.scene)
 
     rndr.image_settings.file_format = original_format
 
