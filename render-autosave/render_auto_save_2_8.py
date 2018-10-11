@@ -38,7 +38,7 @@ bl_info = {
     "location": "Rendertab -> Render Panel",
     "description": "Automatically save the image after rendering",
     "warning": "",
-    "wiki_url":    "https://github.com/tomlechner/blender-stuff/blob/master/render-autosave/render_auto_save.py",
+    "wiki_url":    "https://github.com/tomlechner/blender-stuff/tree/master/render-autosave"
     "tracker_url": "https://github.com/tomlechner/blender-stuff/issues",
     "category": "Render"}
 ###########################################################################

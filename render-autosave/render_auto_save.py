@@ -1,12 +1,14 @@
 #
-#Autosave after each render to: [filename]_[filenumber]-f[frame number].[extension]
+#Autosave after each render to: //auto_saves/[filename]_[filenumber]-f[frame number].[extension]
 #For Blender 2.79.
+#Blender 2.8 version here: https://github.com/tomlechner/blender-stuff/tree/master/render-autosave
 #
 #
 #Simplified BSD License
 #
-#Copyright (c) 2012, Florian Meyer
-#tstscr@web.de
+#Copyright (c) 2012, Florian Meyer, tstscr@web.de
+#original version: http://projects.blender.org/tracker/index.php?func=detail&aid=32491
+#Modified to include frame number.
 #All rights reserved.
 #
 #Redistribution and use in source and binary forms, with or without
@@ -37,8 +39,8 @@ bl_info = {
     "location": "Rendertab -> Render Panel",
     "description": "Automatically save the image after rendering",
     "warning": "",
-    "wiki_url": "http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts/Render/Auto_Save",
-    "tracker_url": "http://projects.blender.org/tracker/index.php?func=detail&aid=32491",
+    "wiki_url":    "https://github.com/tomlechner/blender-stuff/tree/master/render-autosave"
+    "tracker_url": "https://github.com/tomlechner/blender-stuff/issues",
     "category": "Render"}
 ###########################################################################
 import bpy
